@@ -1,0 +1,60 @@
+body {
+    background-color: black;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+.typing-container, .typing-container2, .typing-container3 {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #20c20e;
+    visibility: hidden; /* Initially hidden */
+}
+
+.typing-container {
+    animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+    animation-delay: 0s; /* Starts immediately */
+    animation-fill-mode: forwards;
+}
+
+.typing-container2 {
+    animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+    animation-delay: 5s; /* Starts after the first one finishes */
+    animation-fill-mode: forwards;
+}
+
+.typing-container3 {
+    animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+    animation-delay: 10s; /* Starts after the second one finishes */
+    animation-fill-mode: forwards;
+}
+
+/* Ensure containers are visible only during their animation */
+.typing-container, .typing-container2, .typing-container3 {
+    animation-fill-mode: forwards; /* Retains the final state of animation */
+}
+
+.typing-text, .typing-text2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    color: #20c20e;
+    text-align: center;
+}
+
+@keyframes typing {
+    from { width: 0; visibility: visible; } /* Reveal when typing starts */
+    to { width: 25%; visibility: visible; } /* Ensure it stays visible after typing */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #20c20e; }
+}
